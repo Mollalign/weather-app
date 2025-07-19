@@ -23,7 +23,7 @@ export const GlobalContextProvider = ({ children }) => {
 
   const fetchForecast = async (lat, lon) => {
     try {
-      const res = await axios.get(`api/weather?lat=${lat}&lon=${lon}`);
+      const res = await axios.get(`http://localhost:5000/api/weather?lat=${lat}&lon=${lon}`);
 
       setForecast(res.data);
     } catch (error) {
@@ -34,7 +34,8 @@ export const GlobalContextProvider = ({ children }) => {
   // Air Quality
   const fetchAirQuality = async (lat, lon) => {
     try {
-      const res = await axios.get(`api/pollution?lat=${lat}&lon=${lon}`);
+      const res = await axios.get(`http://localhost:5000/api/pollution?lat=${lat}&lon=${lon}`);
+
       setAirQuality(res.data);
     } catch (error) {
       console.log("Error fetching air quality data: ", error.message);
@@ -44,7 +45,7 @@ export const GlobalContextProvider = ({ children }) => {
   // five day forecast
   const fetchFiveDayForecast = async (lat, lon) => {
     try {
-      const res = await axios.get(`api/fiveday?lat=${lat}&lon=${lon}`);
+      const res = await axios.get(`http://localhost:5000/api/fiveday?lat=${lat}&lon=${lon}`);
 
       setFiveDayForecast(res.data);
     } catch (error) {
@@ -55,7 +56,7 @@ export const GlobalContextProvider = ({ children }) => {
   //geocoded list
   const fetchGeoCodedList = async (search) => {
     try {
-      const res = await axios.get(`/api/geocoded?search=${search}`);
+      const res = await axios.get(`http://localhost:5000/api/geocoded?search=${search}`);
 
       setGeoCodedList(res.data);
     } catch (error) {
@@ -66,7 +67,7 @@ export const GlobalContextProvider = ({ children }) => {
   //fetch uv data
   const fetchUvIndex = async (lat, lon) => {
     try {
-      const res = await axios.get(`/api/uv?lat=${lat}&lon=${lon}`);
+      const res = await axios.get(`http://localhost:5000/api/uv?lat=${lat}&lon=${lon}`);
 
       seUvIndex(res.data);
     } catch (error) {
