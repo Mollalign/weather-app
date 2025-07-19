@@ -24,7 +24,7 @@ function SearchDialog() {
         <DialogTrigger asChild>
           <Button
             variant="outline"
-            className="border inline-flex items-center justify-center text-sm font-medium hover:dark:bg-[#131313] hover:bg-slate-100  ease-in-out duration-200"
+            className="border inline-flex items-center justify-center text-sm font-medium hover:dark:bg-[#13131] hover:bg-slate-100  ease-in-out duration-200 cursor-pointer"
           >
             <p className="text-sm text-muted-foreground">Search Here...</p>
             <div className="command dark:bg-[#262626] bg-slate-200  py-[2px] pl-[5px] pr-[7px] rounded-sm ml-[10rem] flex items-center gap-2">
@@ -64,7 +64,7 @@ function SearchDialog() {
                       <li
                         key={index}
                         onMouseEnter={() => setHoveredIndex(index)}
-                        className={`py-3 px-2 text-sm  rounded-sm cursor-default
+                        className={`py-3 px-2 text-sm  rounded-sm cursor-pointer
                         ${hoveredIndex === index ? "bg-accent" : ""}
                       `}
                         onClick={() => {

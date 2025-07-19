@@ -121,6 +121,23 @@
   }
 }
 
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1d1c1c;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .progress {
   background: linear-gradient(
     90deg,
@@ -132,7 +149,6 @@
     rgba(178, 34, 34, 1) 100%
   );
 }
-
 
 .temperature {
   background-image: linear-gradient(to right, #00dfff 0%, #00f9ff 20%, yellow);

@@ -14,6 +14,7 @@ import Wind from "./Components/Wind/Wind";
 import defaultStates from "./utils/defaultStates";
 import FiveDayForecast from "./Components/FiveDayForecast/FiveDayForecast";
 import { useGlobalContextUpdate } from "./context/globalContext";
+import Footer from './Components/Footer/Footer'
 
 export default function Home() {
   const { setActiveCityCoords } = useGlobalContextUpdate();
@@ -30,54 +31,61 @@ export default function Home() {
   };
 
   return (
-    <main className="mx-[1rem] lg:mx-[2rem] xl:mx-[6rem] 2xl:mx-[16rem] m-auto">
-      <Navbar />
-      <div className="pb-4 flex flex-col gap-4 md:flex-row">
-        <div className="flex flex-col gap-4 w-full min-w-[18rem] md:w-[35rem]">
-          <Temperature />
-          <FiveDayForecast />
-        </div>
-        <div className="flex flex-col w-full">
-          <div className="instruments grid h-full gap-4 col-span-full sm:col-span-2 lg:grid-cols-3 xl:grid-cols-4">
-            <AirPollution />
-            <Sunset />
-            <Wind />
-            <DailyForecast />
-            <UvIndex />
-            <Population />
-            <FeelsLike />
-            <Humidity />
-            <Visibility />
-            <Pressure />
+    <div>
+      <main className="mx-[1rem] lg:mx-[2rem] xl:mx-[6rem] 2xl:mx-[16rem] m-auto">
+        <Navbar />
+        <div className="pb-4 flex flex-col gap-4 md:flex-row">
+          <div className="flex flex-col gap-4 w-full min-w-[18rem] md:w-[35rem]">
+            <Temperature />
+            <FiveDayForecast />
           </div>
-          <div className="mapbox-con mt-4 flex gap-4">
-            <div className="states flex flex-col gap-3 flex-1">
-              <h2 className="flex items-center gap-2 font-medium">
-                Top Large Cities
-              </h2>
-              <div className="flex flex-col gap-4">
-                {defaultStates.map((state, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="border rounded-lg cursor-pointer dark:bg-[#0A0A0A] shadow-sm dark:shadow-none"
-                      onClick={() => {
-                        getClickedCityCords(state.lat, state.lon);
-                      }}
-                    >
-                      <p className="px-6 py-4">{state.name}</p>
-                    </div>
-                  );
-                })}
+          <div className="flex flex-col w-full">
+            <div className="instruments grid h-full gap-4 col-span-full sm:col-span-2 lg:grid-cols-3 xl:grid-cols-4">
+              <AirPollution />
+              <Sunset />
+              <Wind />
+              <DailyForecast />
+              <UvIndex />
+              <Population />
+              <FeelsLike />
+              <Humidity />
+              <Visibility />
+              <Pressure />
+            </div>
+            <div className="mapbox-con mt-4 flex gap-4">
+              <div className="states flex flex-col gap-3 flex-1">
+                <h2 className="flex items-center gap-2 font-semibold text-lg text-gray-800 dark:text-gray-100">
+                  Top Large Cities
+                </h2>
+                <div className="flex flex-col gap-4">
+                  {defaultStates.map((state, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="border rounded-xl cursor-pointer bg-white dark:bg-[#0A0A0A] 
+                        hover:bg-gradient-to-r hover:from-blue-100 hover:to-purple-100 
+                        dark:hover:from-[#111827] dark:hover:to-[#1f2937] 
+                        transition-all duration-300 ease-in-out shadow-md 
+                        dark:shadow-[0_0_12px_rgba(59,130,246,0.2)]"
+                        onClick={() => {
+                          getClickedCityCords(state.lat, state.lon);
+                        }}
+                      >
+                        <p className="px-6 py-4 text-gray-800 dark:text-gray-200 font-medium">
+                          {state.name}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
+
           </div>
         </div>
-      </div>
-
-      <footer className="py-4 flex justify-center pb-8">
-        Footer
-      </footer>
-    </main>
+        <Footer />
+      </main>
+      
+    </div>
   );
 }

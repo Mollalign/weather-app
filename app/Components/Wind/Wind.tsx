@@ -17,10 +17,14 @@ function Wind() {
 
   return (
     <div
-      className="pt-6 pb-5 px-4 h-[12rem] border rounded-lg flex 
-    flex-col gap-3 dark:bg-[#0A0A0A] shadow-sm dark:shadow-none"
+      className="pt-6 pb-5 px-4 h-[12rem] border rounded-2xl flex 
+      flex-col gap-3 dark:bg-[#0A0A0A] bg-white/50 backdrop-blur-sm
+      shadow-md dark:shadow-[0_0_10px_1px_rgba(0,150,255,0.3)] 
+      transition-all duration-300"
     >
-      <h2 className="flex items-center gap-2 font-medium">{wind} Wind</h2>
+      <h2 className="flex items-center gap-2 font-semibold text-gray-800 dark:text-gray-100">
+        {wind} Wind
+      </h2>
 
       <div className="compass relative flex items-center justify-center">
         <div className="image relative">
@@ -43,8 +47,8 @@ function Wind() {
           />
         </div>
         <p
-          className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-xs
-            dark:text-white font-medium"
+          className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] 
+          text-sm dark:text-white text-black font-semibold"
         >
           {Math.round(windSpeed)} m/s
         </p>
